@@ -1,5 +1,5 @@
 src/public_html/app/code/local/C3/EnvironmentBanner     app/code/local/C3/EnvironmentBanner
-src/public_html/app/design/adminhtml/default/default/template/c3_environmentbanner     app/design/frontend/default/default/template/c3_environmentbanner
+src/public_html/app/design/adminhtml/default/default/template/c3_environmentbanner     app/design/adminhtml/default/default/template/c3_environmentbanner
 src/public_html/app/design/frontend/base/default/template/c3_environmentbanner  app/design/frontend/base/default/template/c3_environmentbanner
 src/public_html/app/design/frontend/base/default/layout/c3_environmentbanner.xml    app/design/frontend/base/default/layout/c3_environmentbanner.xml
 src/public_html/app/etc/modules/*    app/etc/modules/
