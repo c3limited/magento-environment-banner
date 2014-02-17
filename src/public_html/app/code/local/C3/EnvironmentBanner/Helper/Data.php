@@ -16,7 +16,8 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
     protected $_environments = array(
         'production' => array('isProduction' => true),
         'staging' => array('isProduction' => false),
-        'development' => array('isProduction' => false)
+        'development' => array('isProduction' => false),
+	'preview' => array('isProduction' => false)
     );
 
     /**
