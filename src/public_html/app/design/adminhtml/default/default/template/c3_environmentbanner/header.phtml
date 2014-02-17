@@ -1,0 +1,103 @@
+<?php
+/**
+ * C3 Media Ltd
+ *
+ * @title 		Environment Banner.
+ * @category	C3
+ * @package 	C3_EnvironmentBanner
+ * @author		C3 Development Team <development@c3media.co.uk>
+ * @copyright   Copyright (c) 2014 C3 Media Ltd (http://www.c3media.co.uk)
+ */
+
+/** @modification Setting banner colour based on environment. Also inserts name of environment after logo */
+$envHelper = Mage::helper("c3_environmentbanner");
+$env = $envHelper->getEnvironment();
+?>
+<style type="text/css">
+    h2.env {
+        float: left;
+        margin-top: 13px;
+        color: white;
+    }
+<?php
+// Change colour of heading if that option is turned on
+if ($envHelper->isChangeAdminColour()):
+?>
+    <?php if ($env == 'production'): ?>
+    .header {
+        background-color: #dc362f;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#dc362f), to(#7a0200));
+        background-image: -webkit-linear-gradient(top, #dc362f, #7a0200);
+        background-image: -moz-linear-gradient(top, #dc362f, #7a0200);
+        background-image: -ms-linear-gradient(top, #dc362f, #7a0200);
+        background-image: -o-linear-gradient(top, #dc362f, #7a0200);
+    }
+    <?php endif; if ($env == 'development'): ?>
+    .header {
+        background-color: #50c446;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#50c446), to(#005904));
+        background-image: -webkit-linear-gradient(top, #50c446, #005904);
+        background-image: -moz-linear-gradient(top, #50c446, #005904);
+        background-image: -ms-linear-gradient(top, #50c446, #005904);
+        background-image: -o-linear-gradient(top, #50c446, #005904);
+    }
+    <?php endif; if ($env == 'preview'): ?>
+    .header {
+        background-color: #b370fa;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#b370fa), to(#513180));
+        background-image: -webkit-linear-gradient(top, #b370fa, #513180);
+        background-image: -moz-linear-gradient(top, #b370fa, #513180);
+        background-image: -ms-linear-gradient(top, #b370fa, #513180);
+        background-image: -o-linear-gradient(top, #b370fa, #513180);
+    }
+    <?php endif; if ($env == 'staging'): ?>
+    .header {
+        background-color: #e98b18;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#e98b18), to(#994100));
+        background-image: -webkit-linear-gradient(top, #e98b18, #994100);
+        background-image: -moz-linear-gradient(top, #e98b18, #994100);
+        background-image: -ms-linear-gradient(top, #e98b18, #994100);
+        background-image: -o-linear-gradient(top, #e98b18, #994100);
+    }
+    <?php endif; ?>
+<?php endif; ?>
+</style>
+<?php
+/** @var $this Mage_Adminhtml_Block_Page_Header */
+?>
+<div class="header-top">
+    <a href="<?php echo $this->getHomeLink() ?>"><img src="<?php echo $this->getSkinUrl('images/logo.gif') ?>" alt="<?php echo $this->__('Magento Logo') ?>" class="logo"/><?php if ($envHelper->isDisplayAdminEnv()) { echo '<h2 class="env">'.ucfirst($env).'</h2>'; } ?></a>
+    <div class="header-right">
+        <p class="super">
+            <?php echo $this->__("Logged in as %s", $this->escapeHtml($this->getUser()->getUsername())) ?><span class="separator">|</span><?php echo $this->formatDate(null, 'full') ?><span class="separator">|</span><a href="http://golinks.magento.com/CE15" onclick="this.target='_blank'" class="go-try"><?php echo $this->__('Try Magento Go for Free') ?></a><span class="separator">|</span><a href="<?php echo $this->getLogoutLink() ?>" class="link-logout"><?php echo $this->__('Log Out') ?></a>
+        </p>
+        <?php if ( Mage::getSingleton('admin/session')->isAllowed('admin/global_search') ): ?>
+            <fieldset>
+                <legend>Search</legend>
+            <span id="global_search_indicator" class="autocomplete-indicator" style="display: none">
+                <img src="<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading...') ?>" class="v-middle"/>
+            </span>
+                <?php $defSearch = $this->__('Global Record Search') ?>
+                <input id="global_search" name="query" type="text" class="input-text" value="<?php if(!empty($query)): ?><?php echo $query ?><?php else: ?><?php echo $defSearch ?><?php endif ?>" onfocus="if(this.value=='<?php echo $defSearch ?>')this.value=''; " onblur="if(this.value=='')this.value='<?php echo $defSearch ?>';" />
+                <div id="global_search_autocomplete" class="autocomplete"></div>
+                <script type="text/javascript">
+                    new Ajax.Autocompleter(
+                        'global_search',
+                        'global_search_autocomplete',
+                        '<?php echo $this->getUrl('adminhtml/index/globalSearch') ?>',
+                        {
+                            paramName:"query",
+                            minChars:2,
+                            indicator:"global_search_indicator",
+                            updateElement:getSelectionId,
+                            evalJSON:'force'
+                        }
+                    );
+                    function getSelectionId(li) {
+                        location.href = li.getAttribute('url');
+                    }
+                </script>
+            </fieldset>
+        <?php endif; ?>
+    </div>
+</div>

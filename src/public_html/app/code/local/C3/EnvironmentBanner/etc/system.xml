@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * C3 Media Ltd
+ *
+ * @title 		Quick Order Form.
+ * @category	C3
+ * @package 	C3_QuickOrderForm
+ * @author		C3 Development Team <development@c3media.co.uk>
+ * @copyright   Copyright (c) 2014 C3 Media Ltd (http://www.c3media.co.uk)
+ */
+ -->
+
+<config>
+	<tabs>
+		<c3extensions translate="label">
+			<label>C3 Extensions</label>
+			<sort_order>900</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+		</c3extensions>
+	</tabs>
+	<sections>
+		<c3_environmentbanner translate="label" module="c3_environmentbanner">
+			<class>separator-top</class>
+			<label>Environment Banner</label>
+			<tab>c3extensions</tab>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<sort_order>500</sort_order>
+			<groups>
+				<frontend translate="label">
+					<label>Frontend</label>
+					<frontend_type>text</frontend_type>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>100</sort_order>
+					<fields>
+                        <enabled translate="label">
+                            <label>Corner-banner Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enabled>
+					</fields>
+				</frontend>
+                <admin translate="label">
+                    <label>Admin</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>110</sort_order>
+                    <fields>
+                        <colour_change translate="label">
+                            <label>Change admin banner colour</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </colour_change>
+                        <display_env translate="label">
+                            <label>Display environment name</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </display_env>
+                    </fields>
+                </admin>
+			</groups>
+		</c3_environmentbanner>
+	</sections>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * C3 Media Ltd
+ *
+ * @title 		Environment Banner.
+ * @category	C3
+ * @package 	C3_EnvironmentBanner
+ * @author		C3 Development Team <development@c3media.co.uk>
+ * @copyright   Copyright (c) 2014 C3 Media Ltd (http://www.c3media.co.uk)
+ */
+ -->
+<layout version="1.0.0">
+	<default>
+	    <reference name="before_body_end">
+	        <block type="core/template" name="environment.banner" as="environmentBanner" template="c3_environmentbanner/banner.phtml"/>
+	    </reference>
+	</default>
+</layout>

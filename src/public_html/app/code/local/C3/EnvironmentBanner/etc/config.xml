@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * C3 Media Ltd
+ *
+ * @title 		Skin Cache Override extension
+ * @category	C3
+ * @package 	C3_EnvironmentBanner
+ * @author		C3 Development Team <development@c3media.co.uk>
+ * @copyright   Copyright (c) 2014 C3 Media Ltd (http://www.c3media.co.uk)
+ */
+ -->
+
+<config>
+	<modules>
+		<C3_EnvironmentBanner>
+			<version>1.0.0</version>
+		</C3_EnvironmentBanner>
+	</modules>
+	<global>
+	    <models>
+    	    <c3_environmentbanner>
+				<class>C3_EnvironmentBanner_Model</class>
+			</c3_environmentbanner>
+	    </models>
+        <blocks>
+            <c3_environmentbanner>
+                <class>C3_EnvironmentBanner_Block</class>
+            </c3_environmentbanner>
+            <adminhtml>
+                <rewrite>
+                    <page_header>C3_EnvironmentBanner_Block_Adminhtml_Page_Header</page_header>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+	    <helpers>
+    	    <c3_environmentbanner>
+				<class>C3_EnvironmentBanner_Helper</class>
+			</c3_environmentbanner>
+	    </helpers>
+	</global>
+    <frontend>
+		<layout>
+			<updates>
+				<c3_environmentbanner>
+					<file>c3_environmentbanner.xml</file>
+				</c3_environmentbanner>
+			</updates>
+		</layout>
+	</frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <c3_environmentbanner>
+                    <file>c3_environmentbanner.xml</file>
+                </c3_environmentbanner>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <c3_environmentbanner>
+            <frontend>
+                <enabled>1</enabled>
+            </frontend>
+            <admin>
+                <colour_change>1</colour_change>
+                <display_env>1</display_env>
+            </admin>
+        </c3_environmentbanner>
+    </default>
+</config>
