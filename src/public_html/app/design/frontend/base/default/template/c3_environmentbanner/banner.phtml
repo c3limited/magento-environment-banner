@@ -39,7 +39,7 @@ if ($helper->isDisplayFrontendBanner()):
         width: 210px;
     }
 <?php if ($env == 'staging'): ?>
-    .ribbon-inner.development {
+    .ribbon-inner.staging {
         background-color: #dc8f00;
         background-image: -webkit-gradient(linear, left top, left bottom, from(#dc8f00), to(#d45d12));
         background-image: -webkit-linear-gradient(top, #dc8f00, #d45d12);
@@ -49,7 +49,7 @@ if ($helper->isDisplayFrontendBanner()):
         color: #3f1517;
     }
 <?php endif; if ($env == 'development'): ?>
-    .ribbon-inner.staging {
+    .ribbon-inner.development {
         background-color: #BFDC7A;
         background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
         background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45);
@@ -57,6 +57,16 @@ if ($helper->isDisplayFrontendBanner()):
         background-image: -ms-linear-gradient(top, #BFDC7A, #8EBF45);
         background-image: -o-linear-gradient(top, #BFDC7A, #8EBF45);
         color: #6a6340;
+    }
+<?php endif; if ($env == 'preview'): ?>
+    .ribbon-inner.preview {
+        background-color: #a080d9;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#a080d9), to(#7c43bf));
+        background-image: -webkit-linear-gradient(top, #a080d9, #7c43bf);
+        background-image: -moz-linear-gradient(top, #a080d9, #7c43bf);
+        background-image: -ms-linear-gradient(top, #a080d9, #7c43bf);
+        background-image: -o-linear-gradient(top, #a080d9, #7c43bf);
+        color: #47236a;
     }
 <?php endif; ?>
 </style>
