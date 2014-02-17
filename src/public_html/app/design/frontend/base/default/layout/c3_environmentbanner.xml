@@ -12,7 +12,7 @@
  -->
 <layout version="1.0.0">
 	<default>
-	    <reference name="before_body_end">
+	    <reference name="after_body_start">
 	        <block type="core/template" name="environment.banner" as="environmentBanner" template="c3_environmentbanner/banner.phtml"/>
 	    </reference>
 	</default>
