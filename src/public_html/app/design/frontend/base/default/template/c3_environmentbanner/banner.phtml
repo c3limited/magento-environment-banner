@@ -18,9 +18,10 @@ if ($helper->isDisplayFrontendBanner()):
         width: 160px;
         height: 160px;
         overflow: hidden;
-        position: absolute;
+        position: fixed;
         top: 0px;
         right: 0px;
+        z-index: 10000;
     }
 
     .ribbon-inner {
@@ -70,6 +71,6 @@ if ($helper->isDisplayFrontendBanner()):
     }
 <?php endif; ?>
 </style>
-<div class="ribbon-wrapper"><div class="ribbon-inner <?php echo $env ?>"><?php echo ucfirst($env) ?></div></div>
+<div class="ribbon-wrapper" onclick="document.getElementById('envbanner').style.display = 'none';" id="envbanner"><div class="ribbon-inner <?php echo $env ?>" title="click to hide"><?php echo ucfirst($env) ?></div></div>
 
 <?php endif; ?>
