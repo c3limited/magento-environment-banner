@@ -23,6 +23,32 @@ $env = $envHelper->getEnvironment();
 // Change colour of heading if that option is turned on
 if ($envHelper->isChangeAdminColour()):
 ?>
+    .ebborder {
+        position:fixed;
+        z-index: 10000;
+    }
+    #ebtop,#ebbottom {
+        left:0;
+        width:100%;
+        height:3px;
+    }
+    #ebtop {
+        top:0;
+    }
+    #ebbottom {
+        bottom:0;
+    }
+    #ebleft,#ebright {
+        top:0;
+        height:100%;
+        width:3px;
+    }
+    #ebleft {
+        left:0;
+    }
+    #ebright {
+        right:0;
+    }
     <?php if ($env == 'production'): ?>
     .header {
         background-color: #dc362f;
@@ -31,6 +57,9 @@ if ($envHelper->isChangeAdminColour()):
         background-image: -moz-linear-gradient(top, #dc362f, #7a0200);
         background-image: -ms-linear-gradient(top, #dc362f, #7a0200);
         background-image: -o-linear-gradient(top, #dc362f, #7a0200);
+    }
+    .ebborder {
+        background-color: #a20f00;
     }
     <?php endif; if ($env == 'development'): ?>
     .header {
@@ -41,6 +70,9 @@ if ($envHelper->isChangeAdminColour()):
         background-image: -ms-linear-gradient(top, #5fc458, #135916);
         background-image: -o-linear-gradient(top, #5fc458, #135916);
     }
+    .ebborder {
+        background-color: #008f0c;
+    }
     <?php endif; if ($env == 'preview'): ?>
     .header {
         background-color: #b370fa;
@@ -49,6 +81,9 @@ if ($envHelper->isChangeAdminColour()):
         background-image: -moz-linear-gradient(top, #b370fa, #513180);
         background-image: -ms-linear-gradient(top, #b370fa, #513180);
         background-image: -o-linear-gradient(top, #b370fa, #513180);
+    }
+    .ebborder {
+        background-color: #691fbe;
     }
     <?php endif; if ($env == 'staging'): ?>
     .header {
@@ -59,12 +94,19 @@ if ($envHelper->isChangeAdminColour()):
         background-image: -ms-linear-gradient(top, #e98b18, #994100);
         background-image: -o-linear-gradient(top, #e98b18, #994100);
     }
+    .ebborder {
+        background-color: #fb8c00;
+    }
     <?php endif; ?>
 <?php endif; ?>
 </style>
 <?php
 /** @var $this Mage_Adminhtml_Block_Page_Header */
 ?>
+<div id="ebtop" class="ebborder"></div>
+<div id="ebbottom" class="ebborder"></div>
+<div id="ebleft" class="ebborder"></div>
+<div id="ebright" class="ebborder"></div>
 <div class="header-top">
     <a href="<?php echo $this->getHomeLink() ?>"><img src="<?php echo $this->getSkinUrl('images/logo.gif') ?>" alt="<?php echo $this->__('Magento Logo') ?>" class="logo"/><?php if ($envHelper->isDisplayAdminEnv()) { echo '<h2 class="env">'.ucfirst($env).'</h2>'; } ?></a>
     <div class="header-right">
