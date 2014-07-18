@@ -65,6 +65,7 @@
             <admin>
                 <colour_change>1</colour_change>
                 <display_env>1</display_env>
+                <logo_filename>logo.gif</logo_filename><!-- Allows override of admin logo via config variable as this extension overrides the admin header template -->
             </admin>
         </c3_environmentbanner>
     </default>

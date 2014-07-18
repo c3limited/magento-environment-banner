@@ -77,6 +77,15 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Filename of the admin logo - defaults to 'logo.gif'.
+     *
+     * @return string
+     */
+    public function getAdminLogoFilename() {
+        return Mage::getStoreConfig("{$this->_configPrefix}/admin/logo_filename");
+    }
+
+    /**
      * Return the current application environment. If not set, return null
      *
      * @return null|string
