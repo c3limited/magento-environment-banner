@@ -9,9 +9,11 @@
  * @copyright   Copyright (c) 2014 C3 Media Ltd (http://www.c3media.co.uk)
  */
 
+/** @var C3_EnvironmentBanner_Helper_Data $helper */
 $helper = Mage::helper("c3_environmentbanner");
 if ($helper->isDisplayFrontendBanner()):
     $env = $helper->getEnvironment();
+    $cols = $helper->getEnvColours();
 ?>
 <style type="text/css">
     .ribbon-wrapper {
@@ -38,38 +40,17 @@ if ($helper->isDisplayFrontendBanner()):
         left: 3px;
         top: 22px;
         width: 210px;
+        opacity: 0.9;
     }
-<?php if ($env == 'staging'): ?>
-    .ribbon-inner.staging {
-        background-color: #dc8f00;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#dc8f00), to(#d45d12));
-        background-image: -webkit-linear-gradient(top, #dc8f00, #d45d12);
-        background-image: -moz-linear-gradient(top, #dc8f00, #d45d12);
-        background-image: -ms-linear-gradient(top, #dc8f00, #d45d12);
-        background-image: -o-linear-gradient(top, #dc8f00, #d45d12);
-        color: #3f1517;
+    .ribbon-inner.<?php echo $env ?> {
+        background-color: <?php echo $cols->getFeLighterBgcolor() ?>;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(<?php echo $cols->getFeLighterBgcolor() ?>), to(<?php echo $cols->getFeBgcolor() ?>));
+        background-image: -webkit-linear-gradient(top, <?php echo $cols->getFeLighterBgcolor() ?>, <?php echo $cols->getFeBgcolor() ?>);
+        background-image: -moz-linear-gradient(top, <?php echo $cols->getFeLighterBgcolor() ?>, <?php echo $cols->getFeBgcolor() ?>);
+        background-image: -ms-linear-gradient(top, <?php echo $cols->getFeLighterBgcolor() ?>, <?php echo $cols->getFeBgcolor() ?>);
+        background-image: -o-linear-gradient(top, <?php echo $cols->getFeLighterBgcolor() ?>, <?php echo $cols->getFeBgcolor() ?>);
+        color: <?php echo $cols->getFeColor() ?>;
     }
-<?php endif; if ($env == 'development'): ?>
-    .ribbon-inner.development {
-        background-color: #BFDC7A;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
-        background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45);
-        background-image: -moz-linear-gradient(top, #BFDC7A, #8EBF45);
-        background-image: -ms-linear-gradient(top, #BFDC7A, #8EBF45);
-        background-image: -o-linear-gradient(top, #BFDC7A, #8EBF45);
-        color: #6a6340;
-    }
-<?php endif; if ($env == 'preview'): ?>
-    .ribbon-inner.preview {
-        background-color: #a080d9;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#a080d9), to(#7c43bf));
-        background-image: -webkit-linear-gradient(top, #a080d9, #7c43bf);
-        background-image: -moz-linear-gradient(top, #a080d9, #7c43bf);
-        background-image: -ms-linear-gradient(top, #a080d9, #7c43bf);
-        background-image: -o-linear-gradient(top, #a080d9, #7c43bf);
-        color: #47236a;
-    }
-<?php endif; ?>
 </style>
 <div class="ribbon-wrapper" onclick="document.getElementById('envbanner').style.display = 'none';" id="envbanner"><div class="ribbon-inner <?php echo $env ?>" title="click to hide"><?php echo ucfirst($env) ?></div></div>
 
