@@ -13,12 +13,8 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
 {
     protected $_configPrefix = 'c3_environmentbanner';
 
-    protected $_environments = array(
-        'production' => array('isProduction' => true),
-        'staging' => array('isProduction' => false),
-        'development' => array('isProduction' => false),
-	'preview' => array('isProduction' => false)
-    );
+    protected $_environments = null;
+    protected $_colours = null;
 
     /**
      * Whether to display, given environment, settings etc.
@@ -33,17 +29,57 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         // Check that the given environment is recognised, else false
-        if (!isset($this->_environments[$this->getEnvironment()])) {
+        if (!isset($this->getEnvironments()[$this->getEnvironment()])) {
             return false;
         }
 
-        // Never display on production
-        if ($this->_environments[$this->getEnvironment()]['isProduction']) {
+        // Never display on production or if no background colour set (can be used to indicate production)
+        if ($this->getEnvironment() == 'production' || $this->getEnvColours()->getFeBgcolor() === null) {
             return false;
         }
 
         // We're enabled, in a recognised environment that is not production, so... display!
         return true;
+    }
+
+    /**
+     * Get environments array, indexed by environment code
+     *
+     * @return array
+     */
+    protected function getEnvironments()
+    {
+        // Lazily load environments from config
+        if ($this->_environments === null) {
+            $envConfig = unserialize(Mage::getStoreConfig("{$this->_configPrefix}/environments/environments"));
+            // Make into associative array
+            $this->_environments = array();
+            foreach ($envConfig as $env) {
+                $this->_environments[$env['env']] = $env;
+            }
+        }
+
+        return $this->_environments;
+    }
+
+    /**
+     * Get colours set for current environment
+     *
+     * @return C3_EnvironmentBanner_Model_Colours|null Null if cannot find colours for current environment
+     */
+    public function getEnvColours()
+    {
+        // Lazily load colours from environment data
+        if ($this->_colours === null) {
+            if (!isset($this->getEnvironments()[$this->getEnvironment()])) {
+                return null;
+            }
+            $data = $this->getEnvironments()[$this->getEnvironment()];
+            $this->_colours = Mage::getModel('c3_environmentbanner/colours')
+                ->setData($data);
+        }
+
+        return $this->_colours;
     }
 
     /**

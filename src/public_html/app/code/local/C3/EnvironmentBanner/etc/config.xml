@@ -67,6 +67,9 @@
                 <display_env>1</display_env>
                 <logo_filename>logo.gif</logo_filename><!-- Allows override of admin logo via config variable as this extension overrides the admin header template -->
             </admin>
+            <environments>
+                <environments><![CDATA[a:4:{s:18:"_1412161643703_703";a:3:{s:3:"env";s:10:"production";s:10:"fe_bgcolor";s:0:"";s:8:"be_color";s:7:"#7a0200";}s:17:"_1412161786097_97";a:3:{s:3:"env";s:11:"development";s:10:"fe_bgcolor";s:7:"#8ebf45";s:8:"be_color";s:7:"#135916";}s:18:"_1412161792273_273";a:3:{s:3:"env";s:7:"staging";s:10:"fe_bgcolor";s:7:"#d45d12";s:8:"be_color";s:7:"#994100";}s:18:"_1412161795108_108";a:3:{s:3:"env";s:7:"preview";s:10:"fe_bgcolor";s:7:"#7c43bf";s:8:"be_color";s:7:"#513180";}}]]></environments>
+            </environments>
         </c3_environmentbanner>
     </default>
 </config>

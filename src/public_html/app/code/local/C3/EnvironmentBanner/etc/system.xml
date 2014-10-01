@@ -37,6 +37,7 @@
 					<show_in_default>1</show_in_default>
 					<show_in_website>1</show_in_website>
 					<show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
 					<sort_order>100</sort_order>
 					<fields>
                         <enabled translate="label">
@@ -56,6 +57,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
                     <sort_order>110</sort_order>
                     <fields>
                         <colour_change translate="label">
@@ -78,6 +80,26 @@
                         </display_env>
                     </fields>
                 </admin>
+                <environments translate="label">
+                    <label>Environments</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <sort_order>120</sort_order>
+                    <fields>
+                        <environments translate="label">
+                            <label>Environment Details</label>
+                            <frontend_model>c3_environmentbanner/adminhtml_system_config_form_field_environment</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </environments>
+                    </fields>
+                </environments>
 			</groups>
 		</c3_environmentbanner>
 	</sections>
