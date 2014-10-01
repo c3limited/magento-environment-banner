@@ -1,0 +1,124 @@
+<_>
+   <form_key>Q9Rm48wqB8HzbzOo</form_key>
+   <name>c3-environment-banner</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+   </version_ids>
+   <summary>Tell at a glance if you are in a production, staging or dev environment - visual banners on frontend and admin</summary>
+   <description>&lt;p&gt;For any Magento user who has both a live site and a test/staging site.&lt;/p&gt;
+
+&lt;p&gt;Have you ever performed an action - deleted a product or created a promotion live, only to realise that you&apos;ve accidentally done it on the production site rather than a development copy? Be honest now.&lt;/p&gt;
+
+&lt;p&gt;If so, this extension is for you. It adds a discrete corner banner to the frontend of non-production websites (fail-safe - if it doesn&apos;t know what environment it is in then it assumes it is on a production server). It is more striking on the admin side, where the entire title bar is colour-coded, and a border added to the page so that no matter how long the page (I&apos;m looking at you, system config), you&apos;ll always have a visual reminder of which environment you are in.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How it works:&lt;/strong&gt; The environment is picked up from the commonly used APPLICATION_ENV environment variable. This is set by the web-server, and for apache it just means adding in a single line to your .htaccess file. e.g.
+SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
+
+&lt;h1&gt;Information&lt;/h1&gt;
+&lt;p&gt;You can set any set of environments and colours in the admin interface. As default these are: production, staging, preview and development&lt;/p&gt;
+&lt;p&gt;The extension is &lt;a href=&quot;https://github.com/c3limited/magento-environment-banner&quot;&gt;Open source on GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Include via composer or modman&lt;/p&gt;
+&lt;p&gt;Oldest supported CE version is 1.6.0.0&lt;/p&gt;
+&lt;p&gt;Tested in EE 1.13.0.0 to 1.14.0.1&lt;/p&gt;
+&lt;p&gt;Developed by C3 Media, a full service &lt;a href=&quot;http://www.c3media.co.uk&quot;&gt;Magento agency&lt;/a&gt;&lt;/p&gt;</description>
+   <license>GNU General Public License</license>
+   <license_uri/>
+   <version>1.1.0</version>
+   <stability>stable</stability>
+   <notes>&lt;ul&gt;
+&lt;li&gt;Safe. DOES NOT display on production sites - fails safe to display nothing if it does not recognise the environment&lt;/li&gt;
+&lt;li&gt;Display corner banner on front end pages&lt;/li&gt;
+&lt;li&gt;Optionally change colour in admin&lt;/li&gt;
+&lt;li&gt;Fully modifiable and extensible list of environments&lt;/li&gt;
+&lt;li&gt;Use safety colours (defaults to traffic lights) or set your own&lt;/li&gt;
+&lt;/ul&gt;</notes>
+   <authors>
+      <name>
+         <name>C3 Media</name>
+      </name>
+      <user>
+         <user>c3media_ltd</user>
+      </user>
+      <email>
+         <email>hello@c3media.co.uk</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files>    </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+            <min/>
+         </min>
+         <max>
+            <max/>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>mageetc</target>
+         <target>magelocal</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+      </target>
+      <path>
+         <path/>
+         <path>modules/C3_EnvironmentBanner.xml</path>
+         <path>C3/EnvironmentBanner</path>
+         <path>adminhtml/default/default/template/c3_environmentbanner</path>
+         <path>frontend/base/default/template/c3_environmentbanner</path>
+         <path>frontend/base/default/layout/c3_environmentbanner.xml</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>file</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>file</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+</_>
