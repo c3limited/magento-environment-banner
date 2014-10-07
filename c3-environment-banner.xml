@@ -1,5 +1,5 @@
 <_>
-   <form_key>Q9Rm48wqB8HzbzOo</form_key>
+   <form_key>kcMhGnVrE6XFs0NG</form_key>
    <name>c3-environment-banner</name>
    <channel>community</channel>
    <version_ids>
@@ -24,14 +24,10 @@ SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
 &lt;p&gt;Developed by C3 Media, a full service &lt;a href=&quot;http://www.c3media.co.uk&quot;&gt;Magento agency&lt;/a&gt;&lt;/p&gt;</description>
    <license>GNU General Public License</license>
    <license_uri/>
-   <version>1.1.0</version>
+   <version>1.1.1</version>
    <stability>stable</stability>
    <notes>&lt;ul&gt;
-&lt;li&gt;Safe. DOES NOT display on production sites - fails safe to display nothing if it does not recognise the environment&lt;/li&gt;
-&lt;li&gt;Display corner banner on front end pages&lt;/li&gt;
-&lt;li&gt;Optionally change colour in admin&lt;/li&gt;
-&lt;li&gt;Fully modifiable and extensible list of environments&lt;/li&gt;
-&lt;li&gt;Use safety colours (defaults to traffic lights) or set your own&lt;/li&gt;
+&lt;li&gt;Bug fix: Admin displays incorrectly if no env var or colour set&lt;/li&gt;
 &lt;/ul&gt;</notes>
    <authors>
       <name>
@@ -61,7 +57,7 @@ SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
             <max/>
          </max>
          <files>
-            <files>    </files>
+            <files>      </files>
          </files>
       </package>
       <extension>
