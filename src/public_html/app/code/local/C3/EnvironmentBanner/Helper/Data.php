@@ -43,6 +43,32 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Whether to display, given environment, settings etc.
+     *
+     * @return bool
+     */
+    public function isDisplayAdminBanner()
+    {
+        // Check that output is enabled, else return false
+        if (!$this->isChangeAdminColour()) {
+            return false;
+        }
+
+        // Check that the given environment is recognised, else false
+        if (!isset($this->getEnvironments()[$this->getEnvironment()])) {
+            return false;
+        }
+
+        // Never display if no background colour set (can be used to indicate skipping)
+        if ($this->getEnvColours()->getBeColor() === null) {
+            return false;
+        }
+
+        // We're enabled, in a recognised environment, so... display!
+        return true;
+    }
+
+    /**
      * Get environments array, indexed by environment code
      *
      * @return array
