@@ -1,6 +1,6 @@
 <_>
-   <form_key>kcMhGnVrE6XFs0NG</form_key>
-   <name>c3-environment-banner</name>
+   <form_key>evzMFbr6IaxgacbB</form_key>
+   <name>C3_Environment_Banner</name>
    <channel>community</channel>
    <version_ids>
       <version_ids>2</version_ids>
@@ -57,7 +57,7 @@ SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
             <max/>
          </max>
          <files>
-            <files>      </files>
+            <files>        </files>
          </files>
       </package>
       <extension>
