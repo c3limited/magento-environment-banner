@@ -29,7 +29,8 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         // Check that the given environment is recognised, else false
-        if (!isset($this->getEnvironments()[$this->getEnvironment()])) {
+        $environments = $this->getEnvironments();
+        if (!isset($environments[$this->getEnvironment()])) {
             return false;
         }
 
@@ -55,7 +56,8 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         // Check that the given environment is recognised, else false
-        if (!isset($this->getEnvironments()[$this->getEnvironment()])) {
+        $environments = $this->getEnvironments();
+        if (!isset($environments[$this->getEnvironment()])) {
             return false;
         }
 
@@ -97,10 +99,11 @@ class C3_EnvironmentBanner_Helper_Data extends Mage_Core_Helper_Abstract
     {
         // Lazily load colours from environment data
         if ($this->_colours === null) {
-            if (!isset($this->getEnvironments()[$this->getEnvironment()])) {
+            $environments = $this->getEnvironments();
+            if (!isset($environments[$this->getEnvironment()])) {
                 return null;
             }
-            $data = $this->getEnvironments()[$this->getEnvironment()];
+            $data = $environments[$this->getEnvironment()];
             $this->_colours = Mage::getModel('c3_environmentbanner/colours')
                 ->setData($data);
         }
