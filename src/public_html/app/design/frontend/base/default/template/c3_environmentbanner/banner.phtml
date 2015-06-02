@@ -51,7 +51,58 @@ if ($helper->isDisplayFrontendBanner()):
         background-image: -o-linear-gradient(top, <?php echo $cols->getFeLighterBgcolor() ?>, <?php echo $cols->getFeBgcolor() ?>);
         color: <?php echo $cols->getFeColor() ?>;
     }
+
+
+
+
+
+    .ebborder {
+        position:fixed;
+        z-index: 10000;
+    }
+    #ebtop,#ebbottom {
+        left:0;
+        width:100%;
+        height:3px;
+    }
+    #ebtop {
+        top:0;
+    }
+    #ebbottom {
+        bottom:0;
+    }
+    #ebleft,#ebright {
+        top:0;
+        height:100%;
+        width:3px;
+    }
+    #ebleft {
+        left:0;
+    }
+    #ebright {
+        right:0;
+    }
+
+    .ebborder {
+        background-color: <?php echo $cols->getBeBorderColor() ?>;
+    }
+
+
 </style>
-<div class="ribbon-wrapper" onclick="document.getElementById('envbanner').style.display = 'none';" id="envbanner"><div class="ribbon-inner <?php echo $env ?>" title="click to hide"><?php echo ucfirst($env) ?></div></div>
+<div class="ribbon-wrapper" onclick="document.getElementById('envbanner').style.display = 'none';
+                                     document.getElementById('ebtop').style.display = 'none';
+                                     document.getElementById('ebbottom').style.display = 'none';
+                                     document.getElementById('ebleft').style.display = 'none';
+                                     document.getElementById('ebright').style.display = 'none';
+                                     " id="envbanner"><div class="ribbon-inner <?php echo $env ?>" title="click to hide"><?php echo ucfirst($env) ?></div></div>
+
+
+
+    <div id="ebtop" class="ebborder"></div>
+    <div id="ebbottom" class="ebborder"></div>
+    <div id="ebleft" class="ebborder"></div>
+    <div id="ebright" class="ebborder"></div>
+
+
 
 <?php endif; ?>
