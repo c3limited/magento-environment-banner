@@ -1,5 +1,5 @@
 <_>
-   <form_key>evzMFbr6IaxgacbB</form_key>
+   <form_key>nMLyfQ077Qkr4MWy</form_key>
    <name>C3_Environment_Banner</name>
    <channel>community</channel>
    <version_ids>
@@ -10,7 +10,7 @@
 
 &lt;p&gt;Have you ever performed an action - deleted a product or created a promotion live, only to realise that you&apos;ve accidentally done it on the production site rather than a development copy? Be honest now.&lt;/p&gt;
 
-&lt;p&gt;If so, this extension is for you. It adds a discrete corner banner to the frontend of non-production websites (fail-safe - if it doesn&apos;t know what environment it is in then it assumes it is on a production server). It is more striking on the admin side, where the entire title bar is colour-coded, and a border added to the page so that no matter how long the page (I&apos;m looking at you, system config), you&apos;ll always have a visual reminder of which environment you are in.&lt;/p&gt;
+&lt;p&gt;If so, this extension is for you. It adds a discrete corner banner and window border to the frontend of non-production websites (fail-safe - if it doesn&apos;t know what environment it is in then it assumes it is on a production server). It is more striking on the admin side, where the entire title bar is colour-coded, and a border added to the page so that no matter how long the page (I&apos;m looking at you, system config), you&apos;ll always have a visual reminder of which environment you are in.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;How it works:&lt;/strong&gt; The environment is picked up from the commonly used APPLICATION_ENV environment variable. This is set by the web-server, and for apache it just means adding in a single line to your .htaccess file. e.g.
 SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
@@ -19,15 +19,17 @@ SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
 &lt;p&gt;You can set any set of environments and colours in the admin interface. As default these are: production, staging, preview and development&lt;/p&gt;
 &lt;p&gt;The extension is &lt;a href=&quot;https://github.com/c3limited/magento-environment-banner&quot;&gt;Open source on GitHub&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Include via composer or modman&lt;/p&gt;
+&lt;p&gt;Tested with php 5.3 to 5.6&lt;/p&gt;
 &lt;p&gt;Oldest supported CE version is 1.6.0.0&lt;/p&gt;
 &lt;p&gt;Tested in EE 1.13.0.0 to 1.14.0.1&lt;/p&gt;
 &lt;p&gt;Developed by C3 Media, a full service &lt;a href=&quot;http://www.c3media.co.uk&quot;&gt;Magento agency&lt;/a&gt;&lt;/p&gt;</description>
    <license>GNU General Public License</license>
    <license_uri/>
-   <version>1.1.1</version>
+   <version>1.1.3</version>
    <stability>stable</stability>
    <notes>&lt;ul&gt;
-&lt;li&gt;Bug fix: Admin displays incorrectly if no env var or colour set&lt;/li&gt;
+&lt;li&gt;New feature: Adds window border on frontend similar to admin - makes current environment more obvious, especially when scrolling down&lt;/li&gt;
+&lt;li&gt;Bug fix: Changed helper code that was not compatible with php5.3&lt;/li&gt;
 &lt;/ul&gt;</notes>
    <authors>
       <name>
@@ -57,7 +59,7 @@ SetEnv APPLICATION_ENV &amp;quot;staging&amp;quot;&lt;/p&gt;
             <max/>
          </max>
          <files>
-            <files>        </files>
+            <files>         </files>
          </files>
       </package>
       <extension>
