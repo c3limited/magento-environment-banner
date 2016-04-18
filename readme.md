@@ -1,6 +1,8 @@
 C3 Environment Banner Extension for Magento
 ===========================================
 
+**This is the Magento 1 extension. For the Magento 2 version, please see https://github.com/c3limited/magento2-environment-banner**
+
 Tell at a glance if you are in a production, staging or dev environment - visual banners on frontend and admin
 
 For any Magento user who has both a live site and a test/staging site.
